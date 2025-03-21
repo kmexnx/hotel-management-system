@@ -21,15 +21,43 @@ A CRUD application for hotel management using PostgreSQL, Node.js, and React.
 ```
 hotel-management-system/
 ├── client/                  # React frontend
+│   ├── public/              # Public assets
+│   └── src/                 # Source files
+│       ├── components/      # Reusable components
+│       ├── pages/           # Page components
+│       ├── services/        # API services
+│       └── App.js           # Main App component
 ├── server/                  # Node.js backend
 │   ├── config/              # Database configuration
 │   ├── controllers/         # Route controllers
 │   ├── models/              # Database models
 │   ├── routes/              # API routes
-│   ├── utils/               # Utility functions
 │   └── index.js             # Server entry point
 └── README.md                # This file
 ```
+
+## Project Status
+
+The project now includes:
+
+### Backend
+- Database models for Guests, Rooms, Bookings, and Staff
+- Controllers for all CRUD operations
+- RESTful API endpoints
+- Database connection configuration
+
+### Frontend
+- Basic layout with Navbar, Sidebar, and Footer
+- Dashboard with overview of hotel statistics
+- Guest management interface (list view and form for adding/editing)
+- API service for communicating with the backend
+
+### To Be Completed
+- Room management UI
+- Booking management UI
+- Staff management UI
+- Authentication and authorization
+- Additional features like reports and analytics
 
 ## Prerequisites
 
@@ -117,6 +145,7 @@ The frontend will run on http://localhost:3000
 ### Rooms
 - `GET /api/rooms` - Get all rooms
 - `GET /api/rooms/:id` - Get a specific room
+- `GET /api/rooms/available` - Get available rooms for a date range
 - `POST /api/rooms` - Create a new room
 - `PUT /api/rooms/:id` - Update a room
 - `DELETE /api/rooms/:id` - Delete a room
@@ -124,6 +153,7 @@ The frontend will run on http://localhost:3000
 ### Bookings
 - `GET /api/bookings` - Get all bookings
 - `GET /api/bookings/:id` - Get a specific booking
+- `GET /api/bookings/guest/:guestId` - Get bookings by guest ID
 - `POST /api/bookings` - Create a new booking
 - `PUT /api/bookings/:id` - Update a booking
 - `DELETE /api/bookings/:id` - Delete a booking
@@ -131,6 +161,7 @@ The frontend will run on http://localhost:3000
 ### Staff
 - `GET /api/staff` - Get all staff members
 - `GET /api/staff/:id` - Get a specific staff member
+- `GET /api/staff/department/:department` - Get staff by department
 - `POST /api/staff` - Create a new staff member
 - `PUT /api/staff/:id` - Update a staff member
 - `DELETE /api/staff/:id` - Delete a staff member
