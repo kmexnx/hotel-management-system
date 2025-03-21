@@ -50,11 +50,11 @@ The project now includes:
 - Basic layout with Navbar, Sidebar, and Footer
 - Dashboard with overview of hotel statistics
 - Guest management interface (list view and form for adding/editing)
+- Room management interface (grid view and form for adding/editing)
+- Booking management interface (list view with filtering and form for adding/editing)
 - API service for communicating with the backend
 
 ### To Be Completed
-- Room management UI
-- Booking management UI
 - Staff management UI
 - Authentication and authorization
 - Additional features like reports and analytics
@@ -166,15 +166,34 @@ The frontend will run on http://localhost:3000
 - `PUT /api/staff/:id` - Update a staff member
 - `DELETE /api/staff/:id` - Delete a staff member
 
+## Key Features Implemented
+
+### Guest Management
+- View list of all guests with search functionality
+- Add new guests with form validation
+- Edit and delete existing guests
+
+### Room Management
+- View rooms in a grid layout with status indicators
+- Filter rooms by status and search by name or type
+- Add new rooms with amenities selection
+- Edit and delete existing rooms
+
+### Booking Management
+- Comprehensive booking list with status indicators and payment information
+- Advanced filtering by date range, status, and search
+- Create new bookings with automatic price calculation
+- Room availability checking during booking
+- Edit and delete existing bookings
+
 ## Next Steps for Development
 
-To continue building this application, the following steps are recommended:
+To complete this application, the following steps are recommended:
 
-1. Complete the frontend UI for Rooms, Bookings, and Staff management
-2. Implement authentication and authorization (JWT, role-based access)
-3. Add input validation on both frontend and backend
-4. Implement more advanced features:
-   - Room availability calendar
+1. Implement the Staff management UI (similar pattern to guests)
+2. Add authentication and authorization (JWT, role-based access)
+3. Implement more advanced features:
+   - Room availability calendar view
    - Booking confirmation emails
    - Payment integration
    - Reporting and analytics dashboard
