@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 const { sequelize } = require('./config/database');
 
 // Import routes
@@ -16,16 +17,27 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// Routes
+// API Routes
 app.use('/api/guests', guestRoutes);
 app.use('/api/rooms', roomRoutes);
 app.use('/api/bookings', bookingRoutes);
 app.use('/api/staff', staffRoutes);
 
-// Basic route for testing
-app.get('/', (req, res) => {
+// Basic API route for testing
+app.get('/api', (req, res) => {
   res.json({ message: 'Welcome to Hotel Management System API' });
 });
+
+// Serve static files in production
+if (process.env.NODE_ENV === 'production') {
+  // Serve static files from the React app
+  app.use(express.static(path.join(__dirname, 'public')));
+
+  // Handle any requests that don't match the ones above
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  });
+}
 
 // Database connection and server start
 async function startServer() {
@@ -39,6 +51,7 @@ async function startServer() {
     
     app.listen(PORT, () => {
       console.log(`Server is running on port ${PORT}`);
+      console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
     });
   } catch (error) {
     console.error('Unable to connect to the database:', error);
