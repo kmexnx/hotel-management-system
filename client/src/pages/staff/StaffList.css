@@ -1,0 +1,424 @@
+.staff-list-container {
+  padding: 20px;
+}
+
+.staff-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.staff-list-header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.add-btn {
+  display: flex;
+  align-items: center;
+  background-color: #28a745;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.add-btn svg {
+  margin-right: 8px;
+}
+
+.add-btn:hover {
+  background-color: #218838;
+}
+
+.filters-container {
+  margin-bottom: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+
+.search-input {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6c757d;
+}
+
+.search-input input {
+  width: 100%;
+  padding: 10px 10px 10px 40px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.filter-controls {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-items: center;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filter-group label {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.filter-group select {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  min-width: 150px;
+}
+
+.view-toggle {
+  display: flex;
+  gap: 5px;
+}
+
+.view-btn {
+  background-color: #f8f9fa;
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.view-btn.active {
+  background-color: #0056b3;
+  color: white;
+  border-color: #0056b3;
+}
+
+.view-btn:hover:not(.active) {
+  background-color: #e9ecef;
+}
+
+.no-results {
+  background-color: #fff;
+  padding: 20px;
+  text-align: center;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #6c757d;
+  font-size: 18px;
+}
+
+/* Grid view styles */
+.staff-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.staff-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s;
+}
+
+.staff-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.staff-avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 0;
+  background-color: #f8f9fa;
+  position: relative;
+}
+
+.avatar-icon {
+  font-size: 48px;
+  color: #0056b3;
+}
+
+.position-label {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #6c757d;
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+.staff-info {
+  padding: 20px;
+  flex: 1;
+}
+
+.staff-name {
+  font-size: 18px;
+  margin: 0 0 10px;
+  color: #333;
+}
+
+.staff-department {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  font-weight: 500;
+  color: #0056b3;
+}
+
+.info-icon {
+  margin-right: 8px;
+  color: #6c757d;
+}
+
+.staff-contact {
+  margin-bottom: 15px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  font-size: 14px;
+  color: #495057;
+}
+
+.staff-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.hire-date {
+  font-style: italic;
+}
+
+.status-indicator {
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-indicator.active {
+  background-color: #28a745;
+  color: white;
+}
+
+.status-indicator.inactive {
+  background-color: #dc3545;
+  color: white;
+}
+
+.staff-actions {
+  display: flex;
+  border-top: 1px solid #f1f1f1;
+}
+
+.staff-actions .edit-btn,
+.staff-actions .delete-btn {
+  flex: 1;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+  text-decoration: none;
+}
+
+.staff-actions .edit-btn {
+  color: #0056b3;
+  border-right: 1px solid #f1f1f1;
+}
+
+.staff-actions .edit-btn:hover {
+  background-color: rgba(0, 86, 179, 0.1);
+}
+
+.staff-actions .delete-btn {
+  color: #dc3545;
+}
+
+.staff-actions .delete-btn:hover {
+  background-color: rgba(220, 53, 69, 0.1);
+}
+
+.staff-actions svg {
+  margin-right: 5px;
+}
+
+/* Table view styles */
+.table-container {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  color: #495057;
+}
+
+table tr:hover {
+  background-color: #f8f9fa;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-badge.active {
+  background-color: #28a745;
+  color: white;
+}
+
+.status-badge.inactive {
+  background-color: #dc3545;
+  color: white;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.edit-btn, .delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.edit-btn {
+  color: #0056b3;
+}
+
+.edit-btn:hover {
+  background-color: rgba(0, 86, 179, 0.1);
+}
+
+.delete-btn {
+  color: #dc3545;
+}
+
+.delete-btn:hover {
+  background-color: rgba(220, 53, 69, 0.1);
+}
+
+.loading, .error {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 18px;
+  color: #6c757d;
+}
+
+.error {
+  color: #dc3545;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 1200px) {
+  table th:nth-child(4),
+  table td:nth-child(4),
+  table th:nth-child(5),
+  table td:nth-child(5) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  table th:nth-child(3),
+  table td:nth-child(3),
+  table th:nth-child(6),
+  table td:nth-child(6) {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .staff-list-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .staff-list-header h1 {
+    margin-bottom: 15px;
+  }
+  
+  .filter-controls {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .filter-group {
+    width: 100%;
+  }
+  
+  .filter-group select {
+    flex: 1;
+  }
+  
+  .view-toggle {
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .view-btn {
+    flex: 1;
+    text-align: center;
+  }
+}
