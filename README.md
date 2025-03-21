@@ -166,6 +166,20 @@ The frontend will run on http://localhost:3000
 - `PUT /api/staff/:id` - Update a staff member
 - `DELETE /api/staff/:id` - Delete a staff member
 
+## Next Steps for Development
+
+To continue building this application, the following steps are recommended:
+
+1. Complete the frontend UI for Rooms, Bookings, and Staff management
+2. Implement authentication and authorization (JWT, role-based access)
+3. Add input validation on both frontend and backend
+4. Implement more advanced features:
+   - Room availability calendar
+   - Booking confirmation emails
+   - Payment integration
+   - Reporting and analytics dashboard
+   - Guest check-in/check-out process
+
 ## License
 
 MIT
