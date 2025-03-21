@@ -1,0 +1,132 @@
+.guest-list-container {
+  padding: 20px;
+}
+
+.guest-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.guest-list-header h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.add-btn {
+  display: flex;
+  align-items: center;
+  background-color: #28a745;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.add-btn svg {
+  margin-right: 8px;
+}
+
+.add-btn:hover {
+  background-color: #218838;
+}
+
+.search-container {
+  margin-bottom: 20px;
+}
+
+.search-input {
+  position: relative;
+  max-width: 500px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #6c757d;
+}
+
+.search-input input {
+  width: 100%;
+  padding: 10px 10px 10px 40px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.no-results {
+  background-color: #fff;
+  padding: 20px;
+  text-align: center;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  color: #6c757d;
+  font-size: 18px;
+}
+
+.edit-btn, .delete-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin: 0 5px;
+  font-size: 16px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+.edit-btn {
+  color: #0056b3;
+}
+
+.edit-btn:hover {
+  background-color: rgba(0, 86, 179, 0.1);
+}
+
+.delete-btn {
+  color: #dc3545;
+}
+
+.delete-btn:hover {
+  background-color: rgba(220, 53, 69, 0.1);
+}
+
+.loading, .error {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 18px;
+  color: #6c757d;
+}
+
+.error {
+  color: #dc3545;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .guest-list-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .guest-list-header h1 {
+    margin-bottom: 15px;
+  }
+  
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  table th:nth-child(5),
+  table td:nth-child(5) {
+    display: none;
+  }
+}
