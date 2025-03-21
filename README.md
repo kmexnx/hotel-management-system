@@ -1,6 +1,6 @@
 # Hotel Management System
 
-A CRUD application for hotel management using PostgreSQL, Node.js, and React.
+A complete CRUD application for hotel management using PostgreSQL, Node.js, and React.
 
 ## Features
 
@@ -8,11 +8,13 @@ A CRUD application for hotel management using PostgreSQL, Node.js, and React.
 - Room management (create, read, update, delete)
 - Booking management (create, read, update, delete)
 - Staff management (create, read, update, delete)
+- Modern responsive UI with intuitive navigation
+- Dashboard with hotel statistics overview
 
 ## Tech Stack
 
-- **Frontend**: React.js, React Router, Axios
-- **Backend**: Node.js, Express.js
+- **Frontend**: React.js, React Router, Axios, React Icons
+- **Backend**: Node.js, Express.js, Sequelize ORM
 - **Database**: PostgreSQL
 - **API**: RESTful API
 
@@ -24,7 +26,12 @@ hotel-management-system/
 │   ├── public/              # Public assets
 │   └── src/                 # Source files
 │       ├── components/      # Reusable components
+│       │   └── layout/      # Layout components (Navbar, Sidebar, Footer)
 │       ├── pages/           # Page components
+│       │   ├── bookings/    # Booking-related components
+│       │   ├── guests/      # Guest-related components
+│       │   ├── rooms/       # Room-related components
+│       │   └── staff/       # Staff-related components
 │       ├── services/        # API services
 │       └── App.js           # Main App component
 ├── server/                  # Node.js backend
@@ -36,28 +43,36 @@ hotel-management-system/
 └── README.md                # This file
 ```
 
-## Project Status
+## Implemented Features
 
-The project now includes:
+### Guest Management
+- View list of all guests with search functionality
+- Add new guests with form validation
+- Edit and delete existing guests
 
-### Backend
-- Database models for Guests, Rooms, Bookings, and Staff
-- Controllers for all CRUD operations
-- RESTful API endpoints
-- Database connection configuration
+### Room Management
+- View rooms in a grid layout with status indicators
+- Filter rooms by status and search by name or type
+- Add new rooms with amenities selection
+- Edit and delete existing rooms
 
-### Frontend
-- Basic layout with Navbar, Sidebar, and Footer
-- Dashboard with overview of hotel statistics
-- Guest management interface (list view and form for adding/editing)
-- Room management interface (grid view and form for adding/editing)
-- Booking management interface (list view with filtering and form for adding/editing)
-- API service for communicating with the backend
+### Booking Management
+- Comprehensive booking list with status indicators and payment information
+- Advanced filtering by date range, status, and search
+- Create new bookings with automatic price calculation
+- Room availability checking during booking
+- Edit and delete existing bookings
 
-### To Be Completed
-- Staff management UI
-- Authentication and authorization
-- Additional features like reports and analytics
+### Staff Management
+- View staff in both grid and list layouts
+- Filter staff by department and search by name, email, or phone
+- Add new staff members with department-specific role selection
+- Edit and delete existing staff members
+
+### Dashboard
+- Overview of key hotel statistics
+- Quick access to common actions
+- Status indicators for room availability and bookings
 
 ## Prerequisites
 
@@ -166,38 +181,27 @@ The frontend will run on http://localhost:3000
 - `PUT /api/staff/:id` - Update a staff member
 - `DELETE /api/staff/:id` - Delete a staff member
 
-## Key Features Implemented
+## Future Enhancements
 
-### Guest Management
-- View list of all guests with search functionality
-- Add new guests with form validation
-- Edit and delete existing guests
+To further improve this application, the following enhancements could be implemented:
 
-### Room Management
-- View rooms in a grid layout with status indicators
-- Filter rooms by status and search by name or type
-- Add new rooms with amenities selection
-- Edit and delete existing rooms
+1. **Authentication and Authorization**
+   - User login and registration
+   - Role-based access control (Admin, Manager, Staff)
+   - User profile management
 
-### Booking Management
-- Comprehensive booking list with status indicators and payment information
-- Advanced filtering by date range, status, and search
-- Create new bookings with automatic price calculation
-- Room availability checking during booking
-- Edit and delete existing bookings
-
-## Next Steps for Development
-
-To complete this application, the following steps are recommended:
-
-1. Implement the Staff management UI (similar pattern to guests)
-2. Add authentication and authorization (JWT, role-based access)
-3. Implement more advanced features:
+2. **Advanced Features**
    - Room availability calendar view
    - Booking confirmation emails
    - Payment integration
-   - Reporting and analytics dashboard
+   - Analytics and reporting dashboard
    - Guest check-in/check-out process
+   
+3. **Technical Improvements**
+   - Unit and integration tests
+   - Dockerization for easy deployment
+   - CI/CD pipeline
+   - Performance optimizations
 
 ## License
 
