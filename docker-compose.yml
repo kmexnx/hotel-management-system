@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:13-alpine
+    container_name: hotel_db
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres_password
+      POSTGRES_USER: postgres
+      POSTGRES_DB: hotel_management
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - hotel_network
+
+  # Hotel Management System API and Client
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hotel_app
+    restart: always
+    environment:
+      - DB_HOST=postgres
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres_password
+      - DB_NAME=hotel_management
+      - DB_PORT=5432
+      - PORT=5000
+      - NODE_ENV=production
+    ports:
+      - "5000:5000"
+    depends_on:
+      - postgres
+    networks:
+      - hotel_network
+
+# Volumes
+volumes:
+  postgres_data:
+    driver: local
+
+# Networks
+networks:
+  hotel_network:
+    driver: bridge
