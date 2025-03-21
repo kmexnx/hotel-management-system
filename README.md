@@ -17,6 +17,7 @@ A complete CRUD application for hotel management using PostgreSQL, Node.js, and 
 - **Backend**: Node.js, Express.js, Sequelize ORM
 - **Database**: PostgreSQL
 - **API**: RESTful API
+- **Containerization**: Docker, Docker Compose
 
 ## Directory Structure
 
@@ -40,6 +41,8 @@ hotel-management-system/
 │   ├── models/              # Database models
 │   ├── routes/              # API routes
 │   └── index.js             # Server entry point
+├── Dockerfile               # Docker configuration
+├── docker-compose.yml       # Docker Compose configuration
 └── README.md                # This file
 ```
 
@@ -74,15 +77,50 @@ hotel-management-system/
 - Quick access to common actions
 - Status indicators for room availability and bookings
 
-## Prerequisites
+## Setup Instructions
+
+You can run the application in three ways:
+
+### 1. Using Docker (Recommended)
+
+The easiest way to get started is using Docker Compose, which will set up both the PostgreSQL database and the application in containers.
+
+Prerequisites:
+- Docker and Docker Compose installed on your machine
+
+Steps:
+1. Clone the repository:
+```bash
+git clone https://github.com/kmexnx/hotel-management-system.git
+cd hotel-management-system
+```
+
+2. Start the application with Docker Compose:
+```bash
+docker-compose up
+```
+
+3. Access the application at http://localhost:5000
+
+To stop the application:
+```bash
+docker-compose down
+```
+
+To remove all data (including the database volume):
+```bash
+docker-compose down -v
+```
+
+### 2. Manual Setup (Development Mode)
+
+#### Prerequisites
 
 - Node.js (v16 or newer)
 - npm or yarn
 - PostgreSQL (v13 or newer)
 
-## Setup Instructions
-
-### Database Setup
+#### Database Setup
 
 1. Install PostgreSQL if you haven't already
 2. Create a new database:
@@ -93,7 +131,7 @@ CREATE DATABASE hotel_management;
 
 3. The tables will be created automatically when running the backend server for the first time
 
-### Backend Setup
+#### Backend Setup
 
 1. Navigate to the server directory:
 
@@ -126,7 +164,7 @@ npm start
 
 The server will run on http://localhost:5000
 
-### Frontend Setup
+#### Frontend Setup
 
 1. Navigate to the client directory:
 
@@ -147,6 +185,30 @@ npm start
 ```
 
 The frontend will run on http://localhost:3000
+
+### 3. Production Build (Manual Deployment)
+
+1. Build the React frontend:
+```bash
+cd client
+npm install
+npm run build
+```
+
+2. Copy the build folder to the server's public directory:
+```bash
+mkdir -p ../server/public
+cp -r build/* ../server/public/
+```
+
+3. Start the server in production mode:
+```bash
+cd ../server
+npm install
+NODE_ENV=production node index.js
+```
+
+The application will be accessible at http://localhost:5000
 
 ## API Endpoints
 
@@ -199,7 +261,6 @@ To further improve this application, the following enhancements could be impleme
    
 3. **Technical Improvements**
    - Unit and integration tests
-   - Dockerization for easy deployment
    - CI/CD pipeline
    - Performance optimizations
 
