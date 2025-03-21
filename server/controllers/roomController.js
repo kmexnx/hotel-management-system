@@ -1,4 +1,5 @@
 const { Room } = require('../models');
+const { Op } = require('sequelize');
 
 // Get all rooms
 const getAllRooms = async (req, res) => {
